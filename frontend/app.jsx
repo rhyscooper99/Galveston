@@ -9,7 +9,7 @@ function Login({ onLogin }) {
     e.preventDefault();
     setError(null);
     try {
-      const resp = await fetch('http://localhost:8000/login', {
+      const resp = await fetch('/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -38,7 +38,7 @@ function Login({ onLogin }) {
 function PacDashboard() {
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch('http://localhost:8000/pac/dashboard').then(r => r.json()).then(setData);
+    fetch('/api/pac/dashboard').then(r => r.json()).then(setData);
   }, []);
   useEffect(() => {
     if (data) {
@@ -64,7 +64,7 @@ function PacDashboard() {
 function DonorDashboard() {
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch('http://localhost:8000/donor/dashboard').then(r => r.json()).then(setData);
+    fetch('/api/donor/dashboard').then(r => r.json()).then(setData);
   }, []);
   if (!data) return <div className="p-4">Loading...</div>;
   return (

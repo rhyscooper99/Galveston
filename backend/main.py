@@ -1,5 +1,8 @@
-from fastapi import FastAPI, HTTPException, Request
+from pathlib import Path
+
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 app = FastAPI(title="Galveston Group API")
@@ -7,10 +10,14 @@ app = FastAPI(title="Galveston Group API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Serve static frontend files
+frontend_path = Path(__file__).resolve().parent.parent / "frontend"
+app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 
 class LoginRequest(BaseModel):
     email: str
@@ -44,17 +51,17 @@ DONOR_DASHBOARD = {
     ],
 }
 
-@app.post("/login")
+@app.post("/api/login")
 async def login(data: LoginRequest):
     user = USERS.get(data.email)
     if not user or user["password"] != data.password:
         raise HTTPException(status_code=401, detail="Invalid credentials")
     return {"token": "fake-token", "user": {"email": data.email, "role": user["role"], "name": user["name"]}}
 
-@app.get("/pac/dashboard")
+@app.get("/api/pac/dashboard")
 async def pac_dashboard():
     return PAC_DASHBOARD
 
-@app.get("/donor/dashboard")
+@app.get("/api/donor/dashboard")
 async def donor_dashboard():
     return DONOR_DASHBOARD

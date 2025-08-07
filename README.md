@@ -4,15 +4,13 @@ Galveston Group is a political finance platform demo featuring a Python FastAPI 
 
 ## Development
 
-### Backend
+### Run the App
 ```
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
-
-### Frontend
-Open `frontend/index.html` in a browser. The page uses CDN builds of React and Tailwind, so no build step is required.
+Then open [http://localhost:8000](http://localhost:8000) in a browser to use the demo. The FastAPI server also serves the React frontend from the `frontend` directory.
 
 ## Testing
 ```
