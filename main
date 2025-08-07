@@ -1,0 +1,7 @@
+echo "# Galveston" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/rhyscooper99/Galveston.git
+git push -u origin main
