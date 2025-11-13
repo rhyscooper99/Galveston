@@ -1,266 +1,212 @@
-const threatVectors = [
+const metrics = {
+  capital: { score: 97.1, shift: 0.9, description: 'Stress-tested across 42 counterparties' },
+  policy: { label: 'High Alignment', swing: -1, description: 'Regulatory impacts tracked in real time' },
+  threat: { label: '4 Critical', delta: 3, description: 'AI-mapped exposures this hour' },
+  liquidity: { label: 'Robust', shift: 2.4, description: 'Coverage horizon: 72 hours' }
+};
+
+const missions = [
   {
-    domain: 'Geopolitical',
-    score: 87,
-    delta: '+6.2%',
-    direction: 'up',
-    narrative: 'Escalating tariff posture in transatlantic corridors',
-    tags: ['Trade Exposure', 'Supply Chain']
+    code: 'ORION / Sweep-17',
+    status: 'Executing',
+    window: 'T+03h',
+    detail: 'Deploy hedge ladder against transatlantic tariff escalation.'
   },
   {
-    domain: 'Cyber/AI',
-    score: 72,
-    delta: '+3.8%',
-    direction: 'up',
-    narrative: 'Credential stuffing attempts sourced to dark pooling markets',
-    tags: ['Identity', 'Critical Systems']
+    code: 'VANGUARD / Lattice-04',
+    status: 'Monitoring',
+    window: 'T+09h',
+    detail: 'Track liquidity corridors across sterling and yen corridors.'
   },
   {
-    domain: 'Liquidity',
-    score: 54,
-    delta: '-2.1%',
-    direction: 'down',
-    narrative: 'Short-term cash coverage improving on overnight desk',
-    tags: ['Treasury', 'FX Hedges']
-  },
-  {
-    domain: 'Regulatory',
-    score: 63,
-    delta: '+1.4%',
-    direction: 'up',
-    narrative: 'Policy coalition drafting expedited capital controls',
-    tags: ['Policy Radar', 'Capital Flows']
+    code: 'HELIX / Echo-22',
+    status: 'Primed',
+    window: 'T+18h',
+    detail: 'Shadow crypto OTC flows for counterparty fracture indicators.'
   }
 ];
 
-const liquidityTimeline = [
+const entities = [
   {
-    timestamp: '07:40 UTC',
-    headline: 'Counterparty stress beacon resolved',
-    impact: 'Net exposure -3.4%',
-    details: 'Synthetic credit desk unwound deteriorating tranche using AI-assisted hedging sequence.'
+    name: 'Atlas Clearing Union',
+    severity: 'Critical',
+    delta: '+5.2%',
+    note: 'Derivative margin calls raised; automated backstop engaged.'
   },
   {
-    timestamp: '06:55 UTC',
-    headline: 'Energy-linked derivatives spike',
-    impact: 'Value-at-Risk +5.8%',
-    details: 'Commodity corridor flagged for volatility; auto-hedge executing step-down orders.'
+    name: 'Sable Sovereign Fund',
+    severity: 'Elevated',
+    delta: '+2.8%',
+    note: 'Policy desk projecting capital controls within 36 hours.'
   },
   {
-    timestamp: '06:02 UTC',
-    headline: 'Sovereign bond auction undersubscribed',
-    impact: 'Liquidity buffer -1.9%',
-    details: 'European regulator briefing triggered emergency liquidity provisioning simulation.'
+    name: 'Blue River Quant Desk',
+    severity: 'Stable',
+    delta: '-1.6%',
+    note: 'AI-beacon confirms stabilization after synthetic short squeeze.'
   }
 ];
 
-const policyRecommendations = [
+const policyAdvisories = [
   {
-    title: 'Deploy Sentinel Hedge Stack',
-    description: 'Activate AI-orchestrated option ladder to neutralize tariff-driven FX drag across GBP and CAD exposures.'
+    title: 'Activate quantum hedge ladder',
+    channel: 'Liquidity Mesh',
+    impact: 'Coverage +18%'
   },
   {
-    title: 'Engage Policy Response Cell',
-    description: 'Cross-functional swarm to scenario-test rapid capital control enactment and pre-clear contingency filings.'
+    title: 'Lobby tri-regional task force',
+    channel: 'Policy Lattice',
+    impact: 'Alignment +12%'
   },
   {
-    title: 'Fortify Identity Mesh',
-    description: 'Roll adaptive access tokens and biometric circuit breakers to shrink credential attack surface by 48 hours.'
+    title: 'Deploy adaptive credential sweep',
+    channel: 'Cyber AI Shield',
+    impact: 'Threat -24%'
   }
 ];
 
-const signalField = [
+const commandTimeline = [
   {
-    region: 'APAC',
-    metric: 'Synthetic Liquidity Index',
-    value: '41.8',
-    change: '+2.3%',
-    direction: 'positive',
-    detail: 'Hong Kong dark pool depth normalizing; carry trade reopening.'
+    time: '08:10 UTC',
+    action: 'Brief regulators on quantum hedge coverage scenario.',
+    owner: 'Policy Mesh',
+    tag: 'Priority'
   },
   {
-    region: 'EMEA',
-    metric: 'Regulatory Pulse',
-    value: '68.4',
-    change: '+7.1%',
-    direction: 'negative',
-    detail: 'Accelerated Basel IV compliance timeline signaled by EU macro-prudential board.'
+    time: '07:40 UTC',
+    action: 'Reconcile liquidity breach alerts with partner desks.',
+    owner: 'Treasury Node',
+    tag: 'Live'
   },
   {
-    region: 'Americas',
-    metric: 'Counterparty Integrity',
-    value: '58.2',
-    change: '-1.6%',
-    direction: 'negative',
-    detail: 'Tier-2 institution flagged with unresolved collateral obligations.'
+    time: '07:05 UTC',
+    action: 'Initiate synthetic commodity dampers on energy spike.',
+    owner: 'Energy Desk',
+    tag: 'Mitigation'
   },
   {
-    region: 'Global',
-    metric: 'AI Threat Sentiment',
-    value: '73.0',
-    change: '+4.5%',
-    direction: 'positive',
-    detail: 'Neural anomaly radar indicates coordinated probing across data estates.'
+    time: '06:50 UTC',
+    action: 'Synchronize global messaging with risk comms cell.',
+    owner: 'Comms Grid',
+    tag: 'Sync'
   }
 ];
 
-const commandBriefing = [
-  {
-    heading: 'Operational Priority',
-    text: 'Sustain coverage of sovereign debt channels while reinforcing dark-pool counterparty heuristics. Continue T+48 liquidity drills.'
-  },
-  {
-    heading: 'Strategic Directive',
-    text: 'Align board communications with AI-derived forecasts to support policy lobbying across Washington, Brussels, and Singapore corridors.'
-  },
-  {
-    heading: 'Policy Signal',
-    text: 'Monitor emergent carbon border tax frameworks; prepare derivatives team for compliance-driven repricing cascade.'
-  }
-];
+function renderMetrics() {
+  document.getElementById('capital-score').textContent = metrics.capital.score.toFixed(1);
+  document.getElementById('capital-shift').textContent = `${metrics.capital.shift > 0 ? '+' : ''}${metrics.capital.shift.toFixed(1)}%`;
+  document.getElementById('policy-score').textContent = metrics.policy.label;
+  document.getElementById('policy-swing').textContent = `${metrics.policy.swing > 0 ? '+' : ''}${metrics.policy.swing} scenario${Math.abs(metrics.policy.swing) === 1 ? '' : 's'}`;
+  document.getElementById('threat-score').textContent = metrics.threat.label;
+  document.getElementById('threat-delta').textContent = `${metrics.threat.delta > 0 ? '+' : ''}${metrics.threat.delta} alert${Math.abs(metrics.threat.delta) === 1 ? '' : 's'}`;
+  document.getElementById('liquidity-score').textContent = metrics.liquidity.label;
+  document.getElementById('liquidity-shift').textContent = `${metrics.liquidity.shift > 0 ? '+' : ''}${metrics.liquidity.shift.toFixed(1)}%`;
+}
 
-function renderThreatMatrix() {
-  const container = document.getElementById('threat-matrix');
-  container.innerHTML = '';
+function renderMissions() {
+  const list = document.getElementById('mission-list');
+  list.innerHTML = '';
 
-  threatVectors.forEach((vector) => {
-    const card = document.createElement('div');
-    card.className = 'threat-card';
-
-    card.innerHTML = `
-      <div class="threat-header">
-        <span>${vector.domain}</span>
-        <span class="threat-score">${vector.score}</span>
+  missions.forEach((mission) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <strong>${mission.code}</strong>
+      <div class="intel-meta">
+        <span>${mission.status}</span>
+        <span>${mission.window}</span>
       </div>
-      <div class="threat-trend ${vector.direction === 'up' ? 'trend-up' : 'trend-down'}">
-        <span>${vector.delta}</span>
-        <span>${vector.narrative}</span>
+      <p>${mission.detail}</p>
+    `;
+    list.appendChild(li);
+  });
+}
+
+function renderEntities() {
+  const list = document.getElementById('entity-list');
+  list.innerHTML = '';
+
+  entities.forEach((entity) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <strong>${entity.name}</strong>
+      <div class="intel-meta">
+        <span>${entity.severity}</span>
+        <span>${entity.delta}</span>
       </div>
-      <div class="tag-row">
-        ${vector.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+      <p>${entity.note}</p>
+    `;
+    list.appendChild(li);
+  });
+}
+
+function renderPolicies() {
+  const list = document.getElementById('policy-list');
+  list.innerHTML = '';
+
+  policyAdvisories.forEach((policy) => {
+    const li = document.createElement('li');
+    li.innerHTML = `
+      <strong>${policy.title}</strong>
+      <div class="intel-meta">
+        <span>${policy.channel}</span>
+        <span>${policy.impact}</span>
       </div>
     `;
-
-    container.appendChild(card);
+    list.appendChild(li);
   });
 }
 
 function renderTimeline() {
-  const container = document.getElementById('liquidity-timeline');
+  const container = document.getElementById('timeline');
   container.innerHTML = '';
 
-  liquidityTimeline.forEach((event) => {
-    const item = document.createElement('div');
-    item.className = 'timeline-item';
-
-    item.innerHTML = `
-      <span class="timeline-timestamp">${event.timestamp}</span>
-      <span class="timeline-headline">${event.headline}</span>
-      <span class="timeline-impact">${event.impact}</span>
-      <span class="timeline-details">${event.details}</span>
-    `;
-
-    container.appendChild(item);
-  });
-}
-
-function renderRecommendations() {
-  const container = document.getElementById('policy-recommendations');
-  container.innerHTML = '';
-
-  policyRecommendations.forEach((rec) => {
-    const item = document.createElement('div');
-    item.className = 'recommendation';
-
-    item.innerHTML = `
-      <h3>${rec.title}</h3>
-      <p>${rec.description}</p>
-    `;
-
-    container.appendChild(item);
-  });
-}
-
-function renderSignals() {
-  const container = document.getElementById('signal-grid');
-  container.innerHTML = '';
-
-  signalField.forEach((signal) => {
+  commandTimeline.forEach((item) => {
     const card = document.createElement('div');
-    card.className = 'signal-card';
-
+    card.className = 'timeline-item';
     card.innerHTML = `
-      <div class="signal-header">
-        <span>${signal.region}</span>
-        <span>${signal.metric}</span>
-      </div>
-      <div class="signal-metric">${signal.value}</div>
-      <div class="signal-change ${signal.direction}">${signal.change}</div>
-      <div class="signal-detail">${signal.detail}</div>
+      <time>${item.time}</time>
+      <strong>${item.action}</strong>
+      <p>${item.owner} · ${item.tag}</p>
     `;
-
     container.appendChild(card);
   });
 }
 
-function renderBriefing() {
-  const container = document.getElementById('briefing');
-  container.innerHTML = '';
+function animateHud() {
+  const latency = 120 + Math.floor(Math.random() * 40);
+  document.getElementById('mesh-latency').textContent = `${latency} ms`;
 
-  commandBriefing.forEach((item) => {
-    const block = document.createElement('div');
-    block.className = 'briefing-block';
-
-    block.innerHTML = `
-      <h3>${item.heading}</h3>
-      <p>${item.text}</p>
-    `;
-
-    container.appendChild(block);
-  });
+  const riskStates = ['Severe', 'Guarded', 'Elevated'];
+  const countermeasures = ['Quantum Hedge', 'Adaptive Buffer', 'AI Circuit Breaker'];
+  document.getElementById('sector-risk').textContent = riskStates[Math.floor(Math.random() * riskStates.length)];
+  document.getElementById('countermeasure').textContent = countermeasures[Math.floor(Math.random() * countermeasures.length)];
 }
 
-function updateLastSync() {
-  const target = document.getElementById('last-sync');
-  const now = new Date();
-  const time = now.toLocaleTimeString('en-US', { hour12: false });
-  target.textContent = time;
+function randomizeMetrics() {
+  metrics.capital.score = Math.max(92, Math.min(99, metrics.capital.score + (Math.random() - 0.5)));
+  metrics.capital.shift = Math.max(-1.5, Math.min(2.5, metrics.capital.shift + (Math.random() - 0.5) * 0.4));
+  metrics.policy.swing = Math.max(-2, Math.min(2, metrics.policy.swing + (Math.random() > 0.7 ? (Math.random() > 0.5 ? 1 : -1) : 0)));
+  metrics.threat.delta = Math.max(0, Math.min(6, metrics.threat.delta + (Math.random() > 0.6 ? 1 : 0) - (Math.random() > 0.8 ? 1 : 0)));
+  metrics.liquidity.shift = Math.max(-3, Math.min(3.5, metrics.liquidity.shift + (Math.random() - 0.5) * 0.5));
+  renderMetrics();
 }
 
-function pulseSignals() {
-  signalField.forEach((signal) => {
-    const drift = (Math.random() * 2 - 1) * 0.8;
-    const baseValue = parseFloat(signal.value);
-    const updated = Math.max(0, baseValue + drift);
-    signal.value = updated.toFixed(1);
-
-    const delta = (Math.random() * 2 - 1) * 1.2;
-    const change = parseFloat(signal.change);
-    const nextChange = change + delta;
-    signal.change = `${nextChange > 0 ? '+' : ''}${nextChange.toFixed(1)}%`;
-    signal.direction = nextChange === 0 ? 'neutral' : nextChange > 0 ? 'positive' : 'negative';
-  });
-
-  renderSignals();
-}
-
-function boot() {
-  renderThreatMatrix();
+function init() {
+  renderMetrics();
+  renderMissions();
+  renderEntities();
+  renderPolicies();
   renderTimeline();
-  renderRecommendations();
-  renderSignals();
-  renderBriefing();
-  updateLastSync();
-  setInterval(updateLastSync, 1000 * 60);
-  setInterval(pulseSignals, 1000 * 8);
+  animateHud();
 
-  const navItems = document.querySelectorAll('.nav-item');
-  navItems.forEach((item) => {
-    item.addEventListener('click', () => {
-      navItems.forEach((link) => link.classList.remove('active'));
-      item.classList.add('active');
-    });
-  });
+  setInterval(() => {
+    randomizeMetrics();
+    animateHud();
+  }, 5000);
 }
 
-document.addEventListener('DOMContentLoaded', boot);
+if (document.readyState !== 'loading') {
+  init();
+} else {
+  document.addEventListener('DOMContentLoaded', init);
+}

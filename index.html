@@ -3,99 +3,176 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galveston Intelligence Platform</title>
+  <title>Galveston Strategic Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="viewport">
-    <aside class="sidebar">
-      <div class="brand">
-        <span class="brand-icon">G</span>
-        <div>
-          <span class="brand-name">Galveston</span>
-          <span class="brand-tag">Wealth Intelligence Lattice</span>
-        </div>
-      </div>
-      <nav class="nav">
-        <a class="nav-item active" href="#overview">Operational Overview</a>
-        <a class="nav-item" href="#threats">Threat Surfaces</a>
-        <a class="nav-item" href="#policies">Policy Simulations</a>
-        <a class="nav-item" href="#signals">Global Signals</a>
-        <a class="nav-item" href="#briefings">Executive Briefings</a>
+  <div class="app-shell">
+    <aside class="nav-rail">
+      <div class="nav-logo">G</div>
+      <nav class="nav-items">
+        <a class="nav-icon active" href="#dashboard" aria-label="Dashboard">
+          <span class="dot"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10.5 11.5 3 19 10.5V20a1 1 0 0 1-1 1h-4v-6h-4v6H5a1 1 0 0 1-1-1v-9.5Z"/></svg>
+        </a>
+        <a class="nav-icon" href="#missions" aria-label="Missions">
+          <span class="dot"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a1 1 0 0 1 1 1v5H4V5a1 1 0 0 1 1-1Zm-1 9h16v2H4v-2Zm0 4h10v2H4v-2Z"/></svg>
+        </a>
+        <a class="nav-icon" href="#signals" aria-label="Signals">
+          <span class="dot"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20a1 1 0 0 1-1-1V9a1 1 0 1 1 2 0v10a1 1 0 0 1-1 1Zm7 0a1 1 0 0 1-1-1V5a1 1 0 1 1 2 0v14a1 1 0 0 1-1 1Zm6 0a1 1 0 0 1-1-1v-7a1 1 0 1 1 2 0v7a1 1 0 0 1-1 1Z"/></svg>
+        </a>
+        <a class="nav-icon" href="#reports" aria-label="Reports">
+          <span class="dot"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h7l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Zm7 1v4h4"/></svg>
+        </a>
+        <a class="nav-icon" href="#settings" aria-label="Settings">
+          <span class="dot"></span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.45 2.1a1.5 1.5 0 0 0-2.9 0l-.32 1.12a1.5 1.5 0 0 1-1.97 1.03L7.1 3.86a1.5 1.5 0 0 0-1.86.7l-.9 1.74a1.5 1.5 0 0 0 .43 1.85l.9.76a1.5 1.5 0 0 1 0 2.26l-.9.76a1.5 1.5 0 0 0-.43 1.85l.9 1.74a1.5 1.5 0 0 0 1.86.7l1.16-.39a1.5 1.5 0 0 1 1.97 1.03l.32 1.12a1.5 1.5 0 0 0 2.9 0l.32-1.12a1.5 1.5 0 0 1 1.97-1.03l1.16.39a1.5 1.5 0 0 0 1.86-.7l.9-1.74a1.5 1.5 0 0 0-.43-1.85l-.9-.76a1.5 1.5 0 0 1 0-2.26l.9-.76a1.5 1.5 0 0 0 .43-1.85l-.9-1.74a1.5 1.5 0 0 0-1.86-.7l-1.16.39a1.5 1.5 0 0 1-1.97-1.03l-.32-1.12ZM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"/></svg>
+        </a>
       </nav>
-      <div class="sidebar-footer">
-        <div class="status-pill">Node Mesh: Operational</div>
-        <div class="status-meta">
-          Last sync <span id="last-sync">--:--:--</span>
-        </div>
+      <div class="nav-footer">
+        <button class="nav-cta">Deploy Node</button>
       </div>
     </aside>
-    <main class="main">
-      <header class="terminal-header" id="overview">
-        <div class="terminal-title">Strategic Wealth & Policy Intelligence</div>
-        <div class="terminal-meta">
-          <span class="meta-label">Watchlist:</span>
-          <span class="meta-value">Global Conglomerate - Finance & Policy</span>
+
+    <main class="workspace" id="dashboard">
+      <header class="top-bar">
+        <div class="top-meta">
+          <h1>Galveston Strategic Command</h1>
+          <p>Live AI synthesis of macro-financial posture, risk lattices, and operational readiness.</p>
         </div>
-        <div class="terminal-meta">
-          <span class="meta-label">Scenario Window:</span>
-          <span class="meta-value">T+48 Hours</span>
+        <div class="top-actions">
+          <div class="status-indicator">
+            <span class="pulse"></span>
+            Mesh Stable
+          </div>
+          <button class="ghost">Command Palette</button>
+          <div class="avatar">JC</div>
         </div>
       </header>
 
-      <section class="grid">
-        <article class="panel" id="threats">
-          <header class="panel-header">
-            <h2>Threat Vector Diagnostics</h2>
-            <span class="panel-subtitle">AI-ranked exposures across domains</span>
+      <section class="overview-panels" id="signals">
+        <article class="overview-card">
+          <header>
+            <span>Capital Integrity</span>
+            <span class="chip" id="capital-shift">+0.9%</span>
           </header>
-          <div class="matrix" id="threat-matrix">
-            <!-- Dynamically injected -->
-          </div>
+          <h2 id="capital-score">97.1</h2>
+          <footer>Stress-tested across 42 counterparties</footer>
         </article>
+        <article class="overview-card">
+          <header>
+            <span>Policy Trajectory</span>
+            <span class="chip warning" id="policy-swing">-1 scenario</span>
+          </header>
+          <h2 id="policy-score">High Alignment</h2>
+          <footer>Regulatory impacts tracked in real time</footer>
+        </article>
+        <article class="overview-card">
+          <header>
+            <span>Threat Surfaces</span>
+            <span class="chip danger" id="threat-delta">+3 alerts</span>
+          </header>
+          <h2 id="threat-score">4 Critical</h2>
+          <footer>AI-mapped exposures this hour</footer>
+        </article>
+        <article class="overview-card">
+          <header>
+            <span>Liquidity Corridor</span>
+            <span class="chip" id="liquidity-shift">+2.4%</span>
+          </header>
+          <h2 id="liquidity-score">Robust</h2>
+          <footer>Coverage horizon: 72 hours</footer>
+        </article>
+      </section>
 
-        <article class="panel">
-          <header class="panel-header">
-            <h2>Liquidity & Counterparty Pulse</h2>
-            <span class="panel-subtitle">Autonomous monitoring across key partners</span>
+      <div class="main-grid">
+        <section class="tactical-map" aria-labelledby="map-title">
+          <header class="map-header">
+            <div>
+              <h2 id="map-title">Operational Lattice</h2>
+              <p>Geospatial risk canvas with AI-defined safe zones and interdictions.</p>
+            </div>
+            <div class="map-controls">
+              <button class="ghost">Overlay</button>
+              <button class="ghost">Thermal</button>
+              <button class="primary">Live Deploy</button>
+            </div>
           </header>
-          <div class="timeline" id="liquidity-timeline">
-            <!-- Timeline entries -->
+          <div class="map-surface">
+            <div class="map-backdrop"></div>
+            <div class="map-grid"></div>
+            <div class="map-region" id="region-focus">
+              <span class="region-label">Target Delta</span>
+            </div>
+            <div class="map-marker critical" style="--x:24%; --y:36%;">
+              <span class="marker-label">Node A12</span>
+            </div>
+            <div class="map-marker caution" style="--x:56%; --y:52%;">
+              <span class="marker-label">Asset K7</span>
+            </div>
+            <div class="map-marker" style="--x:72%; --y:28%;">
+              <span class="marker-label">Relay S3</span>
+            </div>
+            <div class="map-link" style="--x:24%; --y:36%; --angle:28deg; --length:220px;"></div>
+            <div class="map-link" style="--x:56%; --y:52%; --angle:-32deg; --length:180px;"></div>
           </div>
-        </article>
+          <footer class="map-hud">
+            <div class="hud-card">
+              <span class="label">Mission</span>
+              <span class="value" id="mission-code">Orion / Sweep-17</span>
+            </div>
+            <div class="hud-card">
+              <span class="label">Sector Risk</span>
+              <span class="value" id="sector-risk">Severe</span>
+            </div>
+            <div class="hud-card">
+              <span class="label">Countermeasure</span>
+              <span class="value" id="countermeasure">Quantum Hedge</span>
+            </div>
+            <div class="hud-card">
+              <span class="label">Latency</span>
+              <span class="value" id="mesh-latency">142 ms</span>
+            </div>
+          </footer>
+        </section>
 
-        <article class="panel">
-          <header class="panel-header">
-            <h2>Policy Feedback Engine</h2>
-            <span class="panel-subtitle">Adaptive recommendations & mitigations</span>
-          </header>
-          <div class="recommendations" id="policy-recommendations">
-            <!-- Recommendations -->
-          </div>
-        </article>
+        <aside class="intel-stack" id="missions">
+          <section class="intel-card">
+            <header>
+              <h3>Active Missions</h3>
+              <span class="chip">Live</span>
+            </header>
+            <ul class="intel-list" id="mission-list"></ul>
+          </section>
+          <section class="intel-card">
+            <header>
+              <h3>Entity Diagnostics</h3>
+              <span class="chip warning">Escalating</span>
+            </header>
+            <ul class="intel-list" id="entity-list"></ul>
+          </section>
+          <section class="intel-card" id="reports">
+            <header>
+              <h3>Policy Advisories</h3>
+              <span class="chip">Updated</span>
+            </header>
+            <ul class="intel-list" id="policy-list"></ul>
+          </section>
+        </aside>
+      </div>
 
-        <article class="panel wide" id="signals">
-          <header class="panel-header">
-            <h2>Macro Signal Field</h2>
-            <span class="panel-subtitle">Live anomaly capture across jurisdictions</span>
-          </header>
-          <div class="signal-grid" id="signal-grid">
-            <!-- Signals -->
-          </div>
-        </article>
-
-        <article class="panel wide" id="briefings">
-          <header class="panel-header">
-            <h2>Command Briefing</h2>
-            <span class="panel-subtitle">Fusion of strategic, operational, and regulatory posture</span>
-          </header>
-          <div class="briefing" id="briefing">
-            <!-- Briefing text -->
-          </div>
-        </article>
+      <section class="timeline-deck" aria-labelledby="timeline-title">
+        <header>
+          <h2 id="timeline-title">Command Timeline</h2>
+          <span class="chip">Next 12 Hours</span>
+        </header>
+        <div class="timeline" id="timeline"></div>
       </section>
     </main>
   </div>
