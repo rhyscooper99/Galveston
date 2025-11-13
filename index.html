@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galveston Intelligence Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="viewport">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-icon">G</span>
+        <div>
+          <span class="brand-name">Galveston</span>
+          <span class="brand-tag">Wealth Intelligence Lattice</span>
+        </div>
+      </div>
+      <nav class="nav">
+        <a class="nav-item active" href="#overview">Operational Overview</a>
+        <a class="nav-item" href="#threats">Threat Surfaces</a>
+        <a class="nav-item" href="#policies">Policy Simulations</a>
+        <a class="nav-item" href="#signals">Global Signals</a>
+        <a class="nav-item" href="#briefings">Executive Briefings</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="status-pill">Node Mesh: Operational</div>
+        <div class="status-meta">
+          Last sync <span id="last-sync">--:--:--</span>
+        </div>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="terminal-header" id="overview">
+        <div class="terminal-title">Strategic Wealth & Policy Intelligence</div>
+        <div class="terminal-meta">
+          <span class="meta-label">Watchlist:</span>
+          <span class="meta-value">Global Conglomerate - Finance & Policy</span>
+        </div>
+        <div class="terminal-meta">
+          <span class="meta-label">Scenario Window:</span>
+          <span class="meta-value">T+48 Hours</span>
+        </div>
+      </header>
+
+      <section class="grid">
+        <article class="panel" id="threats">
+          <header class="panel-header">
+            <h2>Threat Vector Diagnostics</h2>
+            <span class="panel-subtitle">AI-ranked exposures across domains</span>
+          </header>
+          <div class="matrix" id="threat-matrix">
+            <!-- Dynamically injected -->
+          </div>
+        </article>
+
+        <article class="panel">
+          <header class="panel-header">
+            <h2>Liquidity & Counterparty Pulse</h2>
+            <span class="panel-subtitle">Autonomous monitoring across key partners</span>
+          </header>
+          <div class="timeline" id="liquidity-timeline">
+            <!-- Timeline entries -->
+          </div>
+        </article>
+
+        <article class="panel">
+          <header class="panel-header">
+            <h2>Policy Feedback Engine</h2>
+            <span class="panel-subtitle">Adaptive recommendations & mitigations</span>
+          </header>
+          <div class="recommendations" id="policy-recommendations">
+            <!-- Recommendations -->
+          </div>
+        </article>
+
+        <article class="panel wide" id="signals">
+          <header class="panel-header">
+            <h2>Macro Signal Field</h2>
+            <span class="panel-subtitle">Live anomaly capture across jurisdictions</span>
+          </header>
+          <div class="signal-grid" id="signal-grid">
+            <!-- Signals -->
+          </div>
+        </article>
+
+        <article class="panel wide" id="briefings">
+          <header class="panel-header">
+            <h2>Command Briefing</h2>
+            <span class="panel-subtitle">Fusion of strategic, operational, and regulatory posture</span>
+          </header>
+          <div class="briefing" id="briefing">
+            <!-- Briefing text -->
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
